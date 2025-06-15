@@ -1,0 +1,332 @@
+/* ============================= */
+/*       GLOBAL DESIGN TOKENS   */
+/* ============================= */
+:root {
+  --font-family: 'Segoe UI', sans-serif;
+  --font-size-base: 14px;
+  --font-size-heading: 1.5rem;
+  --line-height-base: 1.6;
+
+  --color-text: #333;
+  --color-bg: #f4f6f8;
+  --color-white: #ffffff;
+  --color-border: #e5e7eb;
+  --color-border-light: #ddd;
+
+  --primary-color: #1e3a8a;
+  --primary-hover: #162f6a;
+  --accent-color: #facc15;
+
+  --shadow-sm: 0 4px 10px rgba(0, 0, 0, 0.07);
+  --shadow-md: 0 8px 20px rgba(0, 0, 0, 0.05);
+
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+}
+
+/* ============================= */
+/*          BASE STYLES         */
+/* ============================= */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family, 'Segoe UI', sans-serif);
+  background-color: var(--color-bg, #f4f6f8);
+  color: var(--color-text, #333);
+  font-size: var(--font-size-base, 14px);
+  line-height: var(--line-height-base, 1.6);
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 10px;
+  font-size: var(--font-size-base);
+  margin-top: 4px;
+  margin-bottom: 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  box-sizing: border-box;
+  font-family: var(--font-family);
+}
+
+textarea {
+  resize: vertical;
+}
+
+button {
+  background-color: var(--primary-color);
+  color: var(--color-white);
+  border: none;
+  padding: 0.75rem 1.25rem;
+  font-size: var(--font-size-base);
+  font-weight: 500;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--primary-hover);
+}
+
+
+/* ============================= */
+/*           LAYOUT             */
+/* ============================= */
+.main-content {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: var(--color-white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+.app-container{
+  display: block;
+  width: 100%;
+}
+
+/* ============================= */
+/*         HEADER NAVBAR        */
+/* ============================= */
+
+.app-header {
+  background-color: var(--color-white);
+  padding: 0.75rem 1.5rem; /* consistent padding */
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.logo-img {
+  height: 38px;
+  width: auto;
+  border-radius: 4px;
+}
+
+.brand-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.nav-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-links a {
+  padding: 6px 14px;
+  font-weight: 500;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  color: var(--color-text);
+  transition: background-color 0.3s ease;
+}
+
+.nav-links a.active,
+.nav-links a:hover {
+  background-color: var(--primary-color);
+  color: var(--color-white);
+}
+.main-content {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: var(--color-white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+
+/* ============================= */
+/*        UPLOAD FORM           */
+/* ============================= */
+.upload-form {
+  max-width: 500px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding-top: 1rem;
+}
+
+.upload-box {
+  border: 2px dashed var(--primary-color);
+  background-color: #f0f5ff;
+  padding: 2.25rem 1.5rem;
+  border-radius: var(--radius-md);
+  text-align: center;
+  transition: background-color 0.25s ease, border-color 0.25s ease;
+  cursor: pointer;
+}
+
+.upload-box:hover {
+  background-color: #eaf4ff;
+  border-color: var(--primary-hover);
+}
+
+.upload-icon {
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.upload-text {
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--primary-color);
+  margin-bottom: 0.25rem;
+}
+
+.upload-subtext {
+  color: #666;
+  font-size: 0.875rem;
+  margin-top: 0;
+}
+
+/* ============================= */
+/*        RESUME PREVIEW        */
+/* ============================= */
+.resume-preview-container {
+  margin: 2rem auto;
+  max-width: 800px;
+}
+
+.resume-preview-card {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  overflow-y: auto;
+  padding: 0; /* padding moved inside content */
+}
+
+.resume-preview-content {
+  padding: 2rem;
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  color: var(--color-text);
+}
+
+
+/* ============================= */
+/*        EXPORT BUTTONS        */
+/* ============================= */
+.download-section {
+  max-width: 800px;
+  margin: 2rem auto;
+  text-align: center;
+}
+
+.download-section h2 {
+  font-size: var(--font-size-heading);
+  margin-bottom: 1rem;
+}
+
+.download-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+/* ============================= */
+/*        SETTINGS PAGE         */
+/* ============================= */
+section {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--color-border-light);
+}
+.settings-actions {
+  margin-top: 1.5rem;
+}
+
+
+section h2 {
+  font-size: 1.2rem;
+  margin-bottom: 0.75rem;
+  color: var(--primary-color);
+}
+
+label {
+  display: block;
+  font-size: 0.95rem;
+  margin-bottom: 0.75rem;
+}
+
+.settings-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.settings-grid label {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+/* ============================= */
+/*         RESPONSIVENESS       */
+/* ============================= */
+@media (max-width: 600px) {
+  .app-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .main-content {
+    padding: 1.25rem;
+  }
+
+  .download-buttons {
+    flex-direction: column;
+  }
+}
+
+/* ============================= */
+/*        SETTINGS WRAPPER FIX  */
+/* ============================= */
+.settings-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.resume-preview-frame {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-md);
+  padding: 2rem;
+  box-shadow: var(--shadow-sm);
+  max-height: 600px;
+  overflow-y: auto;
+}
