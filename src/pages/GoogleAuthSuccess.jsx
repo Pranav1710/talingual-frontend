@@ -1,61 +1,27 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import { CheckCircle } from "lucide-react";
 
-const GoogleAuthSuccess = () => {
+export default function GoogleAuthSuccess() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const resumeHtml = localStorage.getItem("resumeHtml");
-    const resumeConfig = localStorage.getItem("resumeConfig");
-    const resumeName = localStorage.getItem("resumeName");
+    const timer = setTimeout(() => {
+      navigate("/"); // Redirect to ResumeBuilder
+    }, 2000);
 
-    const openAndReturn = async () => {
-      if (!resumeHtml || !resumeConfig || !resumeName) {
-        navigate("/");
-        return;
-      }
-
-      try {
-        const res = await axios.post(
-          `${import.meta.env.VITE_API_URL}/api/open-in-google-docs`,
-          {
-            html: resumeHtml,
-            config: JSON.parse(resumeConfig),
-            name: resumeName
-          },
-          { withCredentials: true }
-        );
-
-        if (res.data.url) {
-          // Open in new tab
-          const anchor = document.createElement("a");
-          anchor.href = res.data.url;
-          anchor.target = "_blank";
-          anchor.rel = "noreferrer";
-          anchor.click();
-        }
-
-        // ✅ Return to homepage with resume loaded
-        setTimeout(() => {
-          navigate("/");
-        }, 2000); // small delay to allow doc to open
-
-      } catch (err) {
-        console.error("Failed to open doc:", err);
-        navigate("/");
-      }
-    };
-
-    openAndReturn();
-  }, []);
+    return () => clearTimeout(timer);
+  }, [navigate]);
 
   return (
-    <div style={{ padding: "2rem", textAlign: "center" }}>
-      <p>⏳ Opening your resume in Google Docs...</p>
-      <p>Redirecting you back to the app.</p>
+    <div className="flex flex-col items-center justify-center h-[80vh] text-center px-4">
+      <CheckCircle className="w-16 h-16 text-green-600 mb-4" />
+      <h1 className="text-2xl font-semibold text-gray-800 mb-2">
+        Google Drive Connected
+      </h1>
+      <p className="text-gray-600">
+        You’re all set. Redirecting you back to your resume...
+      </p>
     </div>
   );
-};
-
-export default GoogleAuthSuccess;
+}
