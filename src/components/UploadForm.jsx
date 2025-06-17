@@ -79,7 +79,7 @@ function UploadForm({ setResumeHtml }) {
       />
 
       <button type="submit" className="submit-button" disabled={loading}>
-        {loading ? "Processing..." : "Generate Resume"}
+        {loading ? "Processing..." : "Generate CV"}
       </button>
     </form>
   );

@@ -39,7 +39,7 @@ const GoogleAuthSuccess = () => {
         // ✅ Return to homepage with resume loaded
         setTimeout(() => {
           navigate("/");
-        }, 800); // small delay to allow doc to open
+        }, 2000); // small delay to allow doc to open
 
       } catch (err) {
         console.error("Failed to open doc:", err);
