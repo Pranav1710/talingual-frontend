@@ -1,0 +1,22 @@
+.preview-wrapper {
+  background: #e5e5e5; /* Adobe-like gray */
+  padding: 40px 0;
+  display: flex;
+  justify-content: center;
+  overflow-y: auto;
+  min-height: 100vh;
+}
+
+.paper-frame {
+  background: white;
+  width: 800px;
+  padding: 60px 50px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border: 1px solid #ccc;
+  transform: scale(1);
+  transform-origin: top center;
+}
+.paper-frame {
+  transform: scale(1.1);
+  transform-origin: top center;
+}

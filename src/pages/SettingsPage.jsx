@@ -110,7 +110,7 @@ function SettingsPage() {
 
       <div className="settings-actions">
         <button onClick={handleSave}>
-          {saved ? "✅ Saved!" : "Save Export Settings"}
+          {saved ? "Saved!" : "Save Export Settings"}
         </button>
         <button onClick={() => setConfig(defaultConfig)} style={{ backgroundColor: "#888" }}>
           Reset to Default

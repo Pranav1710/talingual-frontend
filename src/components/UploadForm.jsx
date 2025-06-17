@@ -1,6 +1,7 @@
 import React, { useState, useCallback } from "react";
 import { useDropzone } from "react-dropzone";
 import axios from "axios";
+import { useFormatting } from "../context/FormattingContext";
 
 const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
 
@@ -8,6 +9,9 @@ function UploadForm({ setResumeHtml }) {
   const [file, setFile] = useState(null);
   const [notes, setNotes] = useState("");
   const [loading, setLoading] = useState(false);
+
+  const { config } = useFormatting(); 
+
 
   const onDrop = useCallback((acceptedFiles) => {
     if (acceptedFiles && acceptedFiles.length > 0) {
@@ -31,8 +35,11 @@ function UploadForm({ setResumeHtml }) {
     const formData = new FormData();
     formData.append("resume", file);
     formData.append("notes", notes);
+    formData.append("config", JSON.stringify(config));
 
     setLoading(true);
+    setResumeHtml("");
+
     try {
       const res = await axios.post(`${API_URL}/generate-resume`, formData);
       setResumeHtml(res.data.formatted_html);
@@ -43,6 +50,7 @@ function UploadForm({ setResumeHtml }) {
       setLoading(false);
     }
   };
+
 
   return (
     <form onSubmit={handleSubmit} className="upload-form">
@@ -61,7 +69,6 @@ function UploadForm({ setResumeHtml }) {
         )}
       </div>
 
-      {/* <label htmlFor="notes">Recruiter Notes (optional)</label> */}
       <textarea
         id="notes"
         placeholder="Recruiter Notes (optional)"

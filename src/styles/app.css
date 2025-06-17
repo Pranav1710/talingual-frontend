@@ -1,6 +1,3 @@
-/* ============================= */
-/*       GLOBAL DESIGN TOKENS   */
-/* ============================= */
 :root {
   --font-family: 'Segoe UI', sans-serif;
   --font-size-base: 14px;
@@ -31,11 +28,11 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: var(--font-family, 'Segoe UI', sans-serif);
-  background-color: var(--color-bg, #f4f6f8);
-  color: var(--color-text, #333);
-  font-size: var(--font-size-base, 14px);
-  line-height: var(--line-height-base, 1.6);
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  background-color: var(--color-bg);
+  color: var(--color-text);
 }
 
 input,
@@ -43,13 +40,13 @@ textarea,
 select {
   width: 100%;
   padding: 10px;
+  font-family: var(--font-family);
   font-size: var(--font-size-base);
-  margin-top: 4px;
-  margin-bottom: 1rem;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-sm);
   box-sizing: border-box;
-  font-family: var(--font-family);
+  margin-top: 4px;
+  margin-bottom: 1rem;
 }
 
 textarea {
@@ -59,10 +56,10 @@ textarea {
 button {
   background-color: var(--primary-color);
   color: var(--color-white);
-  border: none;
   padding: 0.75rem 1.25rem;
   font-size: var(--font-size-base);
   font-weight: 500;
+  border: none;
   border-radius: var(--radius-sm);
   cursor: pointer;
   transition: background-color 0.3s ease;
@@ -72,10 +69,14 @@ button:hover {
   background-color: var(--primary-hover);
 }
 
+/* ============================= */
+/*            LAYOUT            */
+/* ============================= */
+.app-container {
+  width: 100%;
+  display: block;
+}
 
-/* ============================= */
-/*           LAYOUT             */
-/* ============================= */
 .main-content {
   max-width: 1000px;
   margin: 2rem auto;
@@ -84,23 +85,18 @@ button:hover {
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-md);
 }
-.app-container{
-  display: block;
-  width: 100%;
-}
 
 /* ============================= */
-/*         HEADER NAVBAR        */
+/*            HEADER             */
 /* ============================= */
-
 .app-header {
-  background-color: var(--color-white);
-  padding: 0.75rem 1.5rem; /* consistent padding */
-  border-bottom: 1px solid var(--color-border);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
   position: sticky;
   top: 0;
   z-index: 10;
+  background-color: var(--color-white);
+  padding: 0.75rem 1.5rem;
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
 }
 
 .header-container {
@@ -110,7 +106,6 @@ button:hover {
   justify-content: space-between;
   align-items: center;
 }
-
 
 .header-left {
   display: flex;
@@ -124,47 +119,30 @@ button:hover {
   border-radius: 4px;
 }
 
-.brand-name {
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: var(--primary-color);
-}
-
 .nav-links {
   display: flex;
   gap: 1rem;
 }
 
 .nav-links a {
+  text-decoration: none;
   padding: 6px 14px;
   font-weight: 500;
   border-radius: var(--radius-sm);
-  text-decoration: none;
   color: var(--color-text);
   transition: background-color 0.3s ease;
 }
 
-.nav-links a.active,
-.nav-links a:hover {
+.nav-links a:hover,
+.nav-links a.active {
   background-color: var(--primary-color);
   color: var(--color-white);
 }
-.main-content {
-  max-width: 1000px;
-  margin: 2rem auto;
-  padding: 2rem;
-  background-color: var(--color-white);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-md);
-}
-
 
 /* ============================= */
-/*        UPLOAD FORM           */
+/*          UPLOAD FORM         */
 /* ============================= */
 .upload-form {
-  max-width: 500px;
-  margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -192,77 +170,32 @@ button:hover {
 }
 
 .upload-text {
-  font-weight: 600;
   font-size: 1rem;
+  font-weight: 600;
   color: var(--primary-color);
   margin-bottom: 0.25rem;
 }
 
 .upload-subtext {
-  color: #666;
   font-size: 0.875rem;
-  margin-top: 0;
+  color: #666;
 }
 
 /* ============================= */
-/*        RESUME PREVIEW        */
+/*         SETTINGS PAGE        */
 /* ============================= */
-.resume-preview-container {
-  margin: 2rem auto;
-  max-width: 800px;
-}
-
-.resume-preview-card {
-  background-color: var(--color-white);
-  border: 1px solid var(--color-border-light);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-sm);
-  overflow-y: auto;
-  padding: 0; /* padding moved inside content */
-}
-
-.resume-preview-content {
-  padding: 2rem;
-  font-family: var(--font-family);
-  font-size: var(--font-size-base);
-  line-height: var(--line-height-base);
-  color: var(--color-text);
-}
-
-
-/* ============================= */
-/*        EXPORT BUTTONS        */
-/* ============================= */
-.download-section {
-  max-width: 800px;
-  margin: 2rem auto;
-  text-align: center;
-}
-
-.download-section h2 {
-  font-size: var(--font-size-heading);
-  margin-bottom: 1rem;
-}
-
-.download-buttons {
+.settings-wrapper {
+  width: 100%;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1rem;
+  flex-direction: column;
+  gap: 2rem;
 }
 
-/* ============================= */
-/*        SETTINGS PAGE         */
-/* ============================= */
 section {
   margin-bottom: 2rem;
   padding-bottom: 1rem;
   border-bottom: 1px solid var(--color-border-light);
 }
-.settings-actions {
-  margin-top: 1.5rem;
-}
-
 
 section h2 {
   font-size: 1.2rem;
@@ -283,50 +216,8 @@ label {
 }
 
 .settings-grid label {
-  display: flex;
-  flex-direction: column;
   font-size: 0.95rem;
   font-weight: 500;
-}
-
-/* ============================= */
-/*         RESPONSIVENESS       */
-/* ============================= */
-@media (max-width: 600px) {
-  .app-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.75rem;
-  }
-
-  .main-content {
-    padding: 1.25rem;
-  }
-
-  .download-buttons {
-    flex-direction: column;
-  }
-}
-
-/* ============================= */
-/*        SETTINGS WRAPPER FIX  */
-/* ============================= */
-.settings-wrapper {
-  width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
-}
-
-.resume-preview-frame {
-  width: 100%;
-  max-width: 800px;
-  margin: 0 auto;
-  background-color: var(--color-white);
-  border: 1px solid var(--color-border-light);
-  border-radius: var(--radius-md);
-  padding: 2rem;
-  box-shadow: var(--shadow-sm);
-  max-height: 600px;
-  overflow-y: auto;
 }
