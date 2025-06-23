@@ -21,6 +21,7 @@ function App() {
         <Route path="/" element={<ResumeBuilder />} />
         <Route path="/settings" element={<SettingsPage />} />
         <Route path="/google-auth-success" element={<GoogleAuthSuccess />} />
+         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </MasterLayout>
   );

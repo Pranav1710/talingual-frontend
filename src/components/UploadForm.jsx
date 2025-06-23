@@ -3,7 +3,8 @@ import { useDropzone } from "react-dropzone";
 import axios from "axios";
 import { useFormatting } from "../context/FormattingContext";
 
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
+const API_URL = import.meta.env.VITE_API_URL;
+
 
 function UploadForm({ setResumeHtml }) {
   const [file, setFile] = useState(null);

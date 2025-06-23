@@ -8,13 +8,13 @@ import "./ResumeBuilder.css";
 
 function ResumeBuilder() {
   const {
-  resumeHtml,
-  setResumeHtml,
-  config,
-  setConfig,
-  resumeName,
-  setResumeName,
-} = useFormatting();
+    resumeHtml,
+    setResumeHtml,
+    config,
+    setConfig,
+    resumeName,
+    setResumeName,
+  } = useFormatting();
 
   useEffect(() => {
     const html = localStorage.getItem("resumeHtml");
@@ -31,6 +31,13 @@ function ResumeBuilder() {
       localStorage.removeItem("resumeName");
     }
   }, []);
+
+  const MODE = import.meta.env.VITE_ENV_MODE;
+
+  if (MODE === "dev") {
+    console.log("Running in development");
+  }
+
 
   return (
     <div className="resume-builder-container">
