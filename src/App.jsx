@@ -1,7 +1,7 @@
 // src/App.jsx
 import React from "react";
 import { useEffect } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import ResumeBuilder from "./pages/ResumeBuilder";
 import SettingsPage from "./pages/SettingsPage";
 import GoogleAuthSuccess from "./pages/GoogleAuthSuccess";
@@ -21,7 +21,7 @@ function App() {
         <Route path="/" element={<ResumeBuilder />} />
         <Route path="/settings" element={<SettingsPage />} />
         <Route path="/google-auth-success" element={<GoogleAuthSuccess />} />
-         <Route path="*" element={<Navigate to="/" replace />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </MasterLayout>
   );
