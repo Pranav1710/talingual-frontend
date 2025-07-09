@@ -1,0 +1,62 @@
+.login-container {
+  height: 100vh;
+  background-color: #f7f8fc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-card {
+  background: white;
+  padding: 2rem 2.5rem;
+  border-radius: 8px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  width: 100%;
+  max-width: 420px;
+}
+
+.login-title {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 0.75rem;
+}
+
+.login-subtext {
+  color: #666;
+  font-size: 0.95rem;
+  margin-bottom: 1.8rem;
+}
+
+/* ✅ Fixed button text color and hover effect */
+.google-login-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  color: #333; /* Ensures text is visible on white */
+  border: 1px solid #ddd;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  width: 100%;
+  text-decoration: none;
+}
+
+.google-login-button:hover {
+  background-color: #f2f2f2;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.12);
+}
+
+/* ✅ Improved icon spacing and clarity */
+.google-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 0.6rem;
+  display: inline-block;
+  vertical-align: middle;
+}
